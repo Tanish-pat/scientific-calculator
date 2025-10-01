@@ -60,19 +60,26 @@ pipeline {
         always {
             cleanWs()
         }
+
         success {
             emailext(
                 subject: "SUCCESS: Scientific Calculator Pipeline",
-                body: "The Jenkins pipeline for scientific calculator has completed successfully.\n\nCheck console output at: ${env.BUILD_URL}",
-                to: "Tanish.Pathania@iiitb.ac.in"
+                body: """The Jenkins pipeline for scientific calculator has completed successfully.
+
+    Check console output at: ${env.BUILD_URL}""",
+                to: "Tanish.Pathania@iiitb.ac.in",
+                from: "IIIT Bangalore <no-reply@iiitb.ac.in>"
             )
         }
 
         failure {
             emailext(
                 subject: "FAILURE: Scientific Calculator Pipeline",
-                body: "The Jenkins pipeline for scientific calculator has failed.\n\nCheck console output at: ${env.BUILD_URL}",
-                to: "Tanish.Pathania@iiitb.ac.in"
+                body: """The Jenkins pipeline for scientific calculator has failed.
+
+    Check console output at: ${env.BUILD_URL}""",
+                to: "Tanish.Pathania@iiitb.ac.in",
+                from: "IIIT Bangalore <no-reply@iiitb.ac.in>"
             )
         }
     }
