@@ -25,6 +25,12 @@ pipeline {
                 sh 'mvn package'
             }
         }
+        
+        stage('Prepare Docker Images') {
+            steps {
+                sh 'docker pull openjdk:17-jdk-alpine || true'
+            }
+        }
 
         stage('Docker Build') {
             steps {
