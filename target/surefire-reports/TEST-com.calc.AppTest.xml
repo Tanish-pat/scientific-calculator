@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.calc.AppTest" time="0.101" tests="15" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="17"/>
+    <property name="sun.jnu.encoding" value="UTF-8"/>
+    <property name="java.class.path" value="/home/tanish/snap/snapd-desktop-integration/253/Desktop/scientific-calculator/target/test-classes:/home/tanish/snap/snapd-desktop-integration/253/Desktop/scientific-calculator/target/classes:/home/tanish/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.0/junit-jupiter-5.10.0.jar:/home/tanish/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.0/junit-jupiter-api-5.10.0.jar:/home/tanish/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/tanish/.m2/repository/org/junit/platform/junit-platform-commons/1.10.0/junit-platform-commons-1.10.0.jar:/home/tanish/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/tanish/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.0/junit-jupiter-params-5.10.0.jar:/home/tanish/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.0/junit-jupiter-engine-5.10.0.jar:/home/tanish/.m2/repository/org/junit/platform/junit-platform-engine/1.10.0/junit-platform-engine-1.10.0.jar:"/>
+    <property name="java.vm.vendor" value="Ubuntu"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="java.vendor.url" value="https://ubuntu.com/"/>
+    <property name="os.name" value="Linux"/>
+    <property name="java.vm.specification.version" value="17"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="US"/>
+    <property name="sun.boot.library.path" value="/usr/lib/jvm/java-17-openjdk-amd64/lib"/>
+    <property name="sun.java.command" value="/home/tanish/snap/snapd-desktop-integration/253/Desktop/scientific-calculator/target/surefire/surefirebooter-20251001235724112_3.jar /home/tanish/snap/snapd-desktop-integration/253/Desktop/scientific-calculator/target/surefire 2025-10-01T23-57-23_990-jvmRun1 surefire-20251001235724112_1tmp surefire_0-20251001235724112_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="/home/tanish/snap/snapd-desktop-integration/253/Desktop/scientific-calculator/target/test-classes:/home/tanish/snap/snapd-desktop-integration/253/Desktop/scientific-calculator/target/classes:/home/tanish/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.0/junit-jupiter-5.10.0.jar:/home/tanish/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.0/junit-jupiter-api-5.10.0.jar:/home/tanish/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/tanish/.m2/repository/org/junit/platform/junit-platform-commons/1.10.0/junit-platform-commons-1.10.0.jar:/home/tanish/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/tanish/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.0/junit-jupiter-params-5.10.0.jar:/home/tanish/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.0/junit-jupiter-engine-5.10.0.jar:/home/tanish/.m2/repository/org/junit/platform/junit-platform-engine/1.10.0/junit-platform-engine-1.10.0.jar:"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="/home/tanish"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2025-07-15"/>
+    <property name="java.home" value="/usr/lib/jvm/java-17-openjdk-amd64"/>
+    <property name="file.separator" value="/"/>
+    <property name="basedir" value="/home/tanish/snap/snapd-desktop-integration/253/Desktop/scientific-calculator"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="/home/tanish/snap/snapd-desktop-integration/253/Desktop/scientific-calculator/target/surefire/surefirebooter-20251001235724112_3.jar"/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="17.0.16+8-Ubuntu-0ubuntu124.04.1"/>
+    <property name="user.name" value="tanish"/>
+    <property name="path.separator" value=":"/>
+    <property name="os.version" value="6.14.0-29-generic"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="localRepository" value="/home/tanish/.m2/repository"/>
+    <property name="java.vendor.url.bug" value="https://bugs.launchpad.net/ubuntu/+source/openjdk-17"/>
+    <property name="java.io.tmpdir" value="/tmp"/>
+    <property name="java.version" value="17.0.16"/>
+    <property name="user.dir" value="/home/tanish/snap/snapd-desktop-integration/253/Desktop/scientific-calculator"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="native.encoding" value="UTF-8"/>
+    <property name="java.library.path" value="/usr/local/lib:/usr/local/lib::/usr/java/packages/lib:/usr/lib/x86_64-linux-gnu/jni:/lib/x86_64-linux-gnu:/usr/lib/x86_64-linux-gnu:/usr/lib/jni:/lib:/usr/lib"/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="java.vendor" value="Ubuntu"/>
+    <property name="java.vm.version" value="17.0.16+8-Ubuntu-0ubuntu124.04.1"/>
+    <property name="java.specification.maintenance.version" value="1"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="61.0"/>
+  </properties>
+  <testcase name="testFactorialLargeNumber" classname="com.calc.AppTest" time="0.039"/>
+  <testcase name="testSqrtPositive" classname="com.calc.AppTest" time="0.003"/>
+  <testcase name="testFactorialZero" classname="com.calc.AppTest" time="0.002"/>
+  <testcase name="testSqrtNegative" classname="com.calc.AppTest" time="0.001"/>
+  <testcase name="testPowerNegativeExponent" classname="com.calc.AppTest" time="0.001"/>
+  <testcase name="testPowerZeroExponent" classname="com.calc.AppTest" time="0.002"/>
+  <testcase name="testPowerZeroBase" classname="com.calc.AppTest" time="0.001"/>
+  <testcase name="testPowerPositive" classname="com.calc.AppTest" time="0.001"/>
+  <testcase name="testSqrtZero" classname="com.calc.AppTest" time="0.001"/>
+  <testcase name="testLogZero" classname="com.calc.AppTest" time="0.002"/>
+  <testcase name="testPowerZeroBaseZeroExponent" classname="com.calc.AppTest" time="0.001"/>
+  <testcase name="testFactorialPositive" classname="com.calc.AppTest" time="0.001"/>
+  <testcase name="testLogPositive" classname="com.calc.AppTest" time="0.001"/>
+  <testcase name="testFactorialNegative" classname="com.calc.AppTest" time="0.003"/>
+  <testcase name="testLogNegative" classname="com.calc.AppTest" time="0.0"/>
+</testsuite>
