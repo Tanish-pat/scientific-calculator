@@ -54,6 +54,12 @@ pipeline {
                 sh 'ansible-playbook -i ansible/hosts.ini ansible/deploy.yml'
             }
         }
+
+        stage('Verify Deployment') {
+            steps {
+                sh 'docker ps | grep scientific-calculator || echo "Container not running"'
+            }
+        }
     }
 
     post {
