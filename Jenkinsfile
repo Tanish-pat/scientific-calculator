@@ -28,7 +28,7 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh "sudo docker build -t ${DOCKER_IMAGE} ."
+                sh "docker build -t ${DOCKER_IMAGE} ."
             }
         }
 
@@ -37,8 +37,8 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: "${DOCKERHUB_CREDENTIALS}",
                                                   passwordVariable: 'DOCKER_PASS',
                                                   usernameVariable: 'DOCKER_USER')]) {
-                    sh 'echo $DOCKER_PASS | sudo docker login -u $DOCKER_USER --password-stdin'
-                    sh "sudo docker push ${DOCKER_IMAGE}"
+                    sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
+                    sh "docker push ${DOCKER_IMAGE}"
                 }
             }
         }
