@@ -1,0 +1,25 @@
+---
+- name: Deploy Scientific Calculator Docker container
+  hosts: local
+  become: true
+
+  tasks:
+    - name: Pull Docker image from Docker Hub
+      community.docker.docker_image:
+        name: tanish688/scientific-calculator
+        tag: "1.0"
+        source: pull
+
+    - name: Stop and remove existing container if exists
+      community.docker.docker_container:
+        name: scientific-calculator
+        state: absent
+
+    - name: Run the scientific calculator container
+      community.docker.docker_container:
+        name: scientific-calculator
+        image: tanish688/scientific-calculator:1.0
+        state: started
+        restart_policy: unless-stopped
+        tty: yes
+        interactive: yes
