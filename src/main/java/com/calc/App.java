@@ -15,59 +15,52 @@ public class App {
         return result;
     }
 
-    // ANSI color codes
-    public static final String RESET = "\u001B[0m";
-    public static final String GREEN = "\u001B[32m";
-    public static final String CYAN = "\u001B[36m";
-    public static final String YELLOW = "\u001B[33m";
-    public static final String RED = "\u001B[31m";
-
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         while (true) {
-            System.out.println("\n" + GREEN + "=== Scientific Calculator ===" + RESET);
-            System.out.println(CYAN + "1. Square root (√x)" + RESET);
-            System.out.println(CYAN + "2. Factorial (!x)" + RESET);
-            System.out.println(CYAN + "3. Natural log (ln x)" + RESET);
-            System.out.println(CYAN + "4. Power (x^b)" + RESET);
-            System.out.println(CYAN + "5. Exit" + RESET);
-            System.out.print(YELLOW + "Choose an option: " + RESET);
+            System.out.println("\n=== Scientific Calculator ===");
+            System.out.println("1. Square root (√x)");
+            System.out.println("2. Factorial (!x)");
+            System.out.println("3. Natural log (ln x)");
+            System.out.println("4. Power (x^b)");
+            System.out.println("5. Exit");
+            System.out.print("Choose an option: ");
 
             int choice = sc.nextInt();
 
             try {
                 switch (choice) {
                     case 1:
-                        System.out.print(YELLOW + "Enter number: " + RESET);
+                        System.out.print("Enter number: ");
                         double sqrtInput = sc.nextDouble();
-                        System.out.println(GREEN + "Result: " + sqrtInput + " → " + Math.sqrt(sqrtInput) + RESET);
+                        System.out.println("Result: " + Math.sqrt(sqrtInput));
                         break;
                     case 2:
-                        System.out.print(YELLOW + "Enter number: " + RESET);
+                        System.out.print("Enter number: ");
                         int factInput = sc.nextInt();
-                        System.out.println(GREEN + "Result: " + factorial(factInput) + RESET);
+                        System.out.println("Result: " + factorial(factInput));
                         break;
                     case 3:
-                        System.out.print(YELLOW + "Enter number: " + RESET);
+                        System.out.print("Enter number: ");
                         double lnInput = sc.nextDouble();
-                        System.out.println(GREEN + "Result: " + Math.log(lnInput) + RESET);
+                        System.out.println("Result: " + Math.log(lnInput));
                         break;
                     case 4:
-                        System.out.print(YELLOW + "Enter base: " + RESET);
+                        System.out.print("Enter base: ");
                         double base = sc.nextDouble();
-                        System.out.print(YELLOW + "Enter exponent: " + RESET);
+                        System.out.print("Enter exponent: ");
                         double exp = sc.nextDouble();
-                        System.out.println(GREEN + "Result: " + Math.pow(base, exp) + RESET);
+                        System.out.println("Result: " + Math.pow(base, exp));
                         break;
                     case 5:
-                        System.out.println(RED + "Exiting..." + RESET);
+                        System.out.println("Exiting...");
                         sc.close();
                         return;
                     default:
-                        System.out.println(RED + "Invalid choice" + RESET);
+                        System.out.println("Invalid choice");
                 }
             } catch (Exception e) {
-                System.out.println(RED + "Error: " + e.getMessage() + RESET);
+                System.out.println("Error: " + e.getMessage());
             }
         }
     }
