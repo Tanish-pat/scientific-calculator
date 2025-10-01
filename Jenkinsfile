@@ -60,8 +60,7 @@ pipeline {
         always {
             cleanWs()
         }
-
-                success {
+        success {
             emailext(
                 subject: "SUCCESS: Scientific Calculator Pipeline",
                 body: "The Jenkins pipeline for scientific calculator has completed successfully.\n\nCheck console output at: ${env.BUILD_URL}",
