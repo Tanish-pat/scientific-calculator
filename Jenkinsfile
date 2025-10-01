@@ -25,7 +25,7 @@ pipeline {
                 sh 'mvn package'
             }
         }
-        
+
         stage('Prepare Docker Images') {
             steps {
                 sh 'docker pull openjdk:17-jdk-alpine || true'
@@ -59,6 +59,22 @@ pipeline {
     post {
         always {
             cleanWs()
+        }
+
+                success {
+            emailext(
+                subject: "SUCCESS: Scientific Calculator Pipeline",
+                body: "The Jenkins pipeline for scientific calculator has completed successfully.\n\nCheck console output at: ${env.BUILD_URL}",
+                to: "Tanish.Pathania@iiitb.ac.in"
+            )
+        }
+
+        failure {
+            emailext(
+                subject: "FAILURE: Scientific Calculator Pipeline",
+                body: "The Jenkins pipeline for scientific calculator has failed.\n\nCheck console output at: ${env.BUILD_URL}",
+                to: "Tanish.Pathania@iiitb.ac.in"
+            )
         }
     }
 }
