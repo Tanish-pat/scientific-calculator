@@ -1,10 +1,5 @@
 pipeline {
-    agent {
-        docker {
-            image 'docker:28.4-dind'       // Docker-in-Docker image
-            args '-v /var/run/docker.sock:/var/run/docker.sock'
-        }
-    }
+    agent any
 
     environment {
         DOCKER_IMAGE = "tanish688/scientific-calculator:1.0"
@@ -19,6 +14,12 @@ pipeline {
         }
 
         stage('Build & Test') {
+            agent {
+                docker {
+                    image 'maven:3.9.2-jdk17'   // Maven image with JDK 17
+                    args '-v /var/run/docker.sock:/var/run/docker.sock' // to access host Docker
+                }
+            }
             steps {
                 sh 'mvn clean test'
                 sh 'mvn package'
@@ -33,7 +34,9 @@ pipeline {
 
         stage('Docker Push') {
             steps {
-                withCredentials([usernamePassword(credentialsId: "${DOCKERHUB_CREDENTIALS}", passwordVariable: 'DOCKER_PASS', usernameVariable: 'DOCKER_USER')]) {
+                withCredentials([usernamePassword(credentialsId: "${DOCKERHUB_CREDENTIALS}",
+                                                  passwordVariable: 'DOCKER_PASS',
+                                                  usernameVariable: 'DOCKER_USER')]) {
                     sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
                     sh "docker push ${DOCKER_IMAGE}"
                 }
