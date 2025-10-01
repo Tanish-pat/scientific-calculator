@@ -9,7 +9,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'main', url: 'https://github.com/<your-username>/scientific-calculator.git'
+                git branch: 'main', url: 'https://github.com/Tanish-pat/scientific-calculator.git'
             }
         }
 
