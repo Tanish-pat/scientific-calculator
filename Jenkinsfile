@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         DOCKER_IMAGE = "tanish688/scientific-calculator:1.0"
-        DOCKERHUB_CREDENTIALS = "dockerhub-creds" // Jenkins credentials ID
+        DOCKERHUB_CREDENTIALS = "dockerhub-creds"
     }
 
     stages {
@@ -16,8 +16,8 @@ pipeline {
         stage('Build & Test') {
             agent {
                 docker {
-                    image 'maven:3.9.2-jdk17'   // Maven image with JDK 17
-                    args '-v /var/run/docker.sock:/var/run/docker.sock' // to access host Docker
+                    image 'maven:3.9.2-eclipse-temurin-17'
+                    args '-v /var/run/docker.sock:/var/run/docker.sock'
                 }
             }
             steps {
@@ -28,7 +28,7 @@ pipeline {
 
         stage('Docker Build') {
             steps {
-                sh "docker build -t ${DOCKER_IMAGE} ."
+                sh "sudo docker build -t ${DOCKER_IMAGE} ."
             }
         }
 
@@ -37,8 +37,8 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: "${DOCKERHUB_CREDENTIALS}",
                                                   passwordVariable: 'DOCKER_PASS',
                                                   usernameVariable: 'DOCKER_USER')]) {
-                    sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
-                    sh "docker push ${DOCKER_IMAGE}"
+                    sh 'echo $DOCKER_PASS | sudo docker login -u $DOCKER_USER --password-stdin'
+                    sh "sudo docker push ${DOCKER_IMAGE}"
                 }
             }
         }
