@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.calc.AppTest" time="0.101" tests="15" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.calc.AppTest" time="0.098" tests="15" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-17-openjdk-amd64/lib"/>
-    <property name="sun.java.command" value="/home/tanish/snap/snapd-desktop-integration/253/Desktop/scientific-calculator/target/surefire/surefirebooter-20251001235724112_3.jar /home/tanish/snap/snapd-desktop-integration/253/Desktop/scientific-calculator/target/surefire 2025-10-01T23-57-23_990-jvmRun1 surefire-20251001235724112_1tmp surefire_0-20251001235724112_2tmp"/>
+    <property name="sun.java.command" value="/home/tanish/snap/snapd-desktop-integration/253/Desktop/scientific-calculator/target/surefire/surefirebooter-20251004173850859_3.jar /home/tanish/snap/snapd-desktop-integration/253/Desktop/scientific-calculator/target/surefire 2025-10-04T17-38-50_759-jvmRun1 surefire-20251004173850859_1tmp surefire_0-20251004173850859_2tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/home/tanish/snap/snapd-desktop-integration/253/Desktop/scientific-calculator/target/test-classes:/home/tanish/snap/snapd-desktop-integration/253/Desktop/scientific-calculator/target/classes:/home/tanish/.m2/repository/org/junit/jupiter/junit-jupiter/5.10.0/junit-jupiter-5.10.0.jar:/home/tanish/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.10.0/junit-jupiter-api-5.10.0.jar:/home/tanish/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/home/tanish/.m2/repository/org/junit/platform/junit-platform-commons/1.10.0/junit-platform-commons-1.10.0.jar:/home/tanish/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/home/tanish/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.10.0/junit-jupiter-params-5.10.0.jar:/home/tanish/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.10.0/junit-jupiter-engine-5.10.0.jar:/home/tanish/.m2/repository/org/junit/platform/junit-platform-engine/1.10.0/junit-platform-engine-1.10.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -27,7 +27,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="/home/tanish/snap/snapd-desktop-integration/253/Desktop/scientific-calculator/target/surefire/surefirebooter-20251001235724112_3.jar"/>
+    <property name="surefire.real.class.path" value="/home/tanish/snap/snapd-desktop-integration/253/Desktop/scientific-calculator/target/surefire/surefirebooter-20251004173850859_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="17.0.16+8-Ubuntu-0ubuntu124.04.1"/>
     <property name="user.name" value="tanish"/>
@@ -52,19 +52,19 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testFactorialLargeNumber" classname="com.calc.AppTest" time="0.039"/>
+  <testcase name="testFactorialLargeNumber" classname="com.calc.AppTest" time="0.032"/>
   <testcase name="testSqrtPositive" classname="com.calc.AppTest" time="0.003"/>
-  <testcase name="testFactorialZero" classname="com.calc.AppTest" time="0.002"/>
-  <testcase name="testSqrtNegative" classname="com.calc.AppTest" time="0.001"/>
-  <testcase name="testPowerNegativeExponent" classname="com.calc.AppTest" time="0.001"/>
+  <testcase name="testFactorialZero" classname="com.calc.AppTest" time="0.001"/>
+  <testcase name="testSqrtNegative" classname="com.calc.AppTest" time="0.002"/>
+  <testcase name="testPowerNegativeExponent" classname="com.calc.AppTest" time="0.002"/>
   <testcase name="testPowerZeroExponent" classname="com.calc.AppTest" time="0.002"/>
   <testcase name="testPowerZeroBase" classname="com.calc.AppTest" time="0.001"/>
   <testcase name="testPowerPositive" classname="com.calc.AppTest" time="0.001"/>
-  <testcase name="testSqrtZero" classname="com.calc.AppTest" time="0.001"/>
-  <testcase name="testLogZero" classname="com.calc.AppTest" time="0.002"/>
-  <testcase name="testPowerZeroBaseZeroExponent" classname="com.calc.AppTest" time="0.001"/>
+  <testcase name="testSqrtZero" classname="com.calc.AppTest" time="0.002"/>
+  <testcase name="testLogZero" classname="com.calc.AppTest" time="0.001"/>
+  <testcase name="testPowerZeroBaseZeroExponent" classname="com.calc.AppTest" time="0.002"/>
   <testcase name="testFactorialPositive" classname="com.calc.AppTest" time="0.001"/>
   <testcase name="testLogPositive" classname="com.calc.AppTest" time="0.001"/>
   <testcase name="testFactorialNegative" classname="com.calc.AppTest" time="0.003"/>
-  <testcase name="testLogNegative" classname="com.calc.AppTest" time="0.0"/>
+  <testcase name="testLogNegative" classname="com.calc.AppTest" time="0.001"/>
 </testsuite>
