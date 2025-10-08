@@ -21,54 +21,119 @@ pipeline {
                 }
             }
             steps {
-                sh 'mvn clean test'
-                sh 'mvn package'
+                script {
+                    env.TEST_OUTPUT = sh(script: 'mvn clean test', returnStdout: true).trim()
+                    env.PACKAGE_OUTPUT = sh(script: 'mvn package', returnStdout: true).trim()
+                }
             }
         }
 
         stage('Prepare Docker Images') {
             steps {
-                sh 'docker pull openjdk:17-jdk-alpine || true'
+                script {
+                    env.DOCKER_PULL_OUTPUT = sh(script: 'docker pull openjdk:17-jdk-alpine || true', returnStdout: true).trim()
+                }
             }
         }
 
         stage('Docker Build') {
             steps {
-                sh "docker build -t ${DOCKER_IMAGE} ."
+                script {
+                    env.DOCKER_BUILD_OUTPUT = sh(script: "docker build -t ${DOCKER_IMAGE} .", returnStdout: true).trim()
+                }
             }
         }
 
         stage('Docker Push') {
             steps {
-                withCredentials([usernamePassword(credentialsId: "${DOCKERHUB_CREDENTIALS}",passwordVariable: 'DOCKER_PASS',usernameVariable: 'DOCKER_USER')]) {
-                    sh 'echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin'
-                    sh "docker push ${DOCKER_IMAGE}"
+                script {
+                    env.DOCKER_PUSH_OUTPUT = sh(script: """\
+                        echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+                        docker push ${DOCKER_IMAGE}
+                    """, returnStdout: true).trim()
                 }
             }
         }
 
         stage('Deploy with Ansible') {
             steps {
-                sh 'ansible-playbook -i ansible/hosts.ini ansible/deploy.yml'
+                script {
+                    env.ANSIBLE_OUTPUT = sh(script: 'ansible-playbook -i ansible/hosts.ini ansible/deploy.yml', returnStdout: true).trim()
+                }
             }
         }
 
         stage('Verify Deployment') {
             steps {
-                sh 'docker ps | grep scientific-calculator || echo "Container not running"'
+                script {
+                    env.VERIFY_OUTPUT = sh(script: 'docker ps | grep scientific-calculator || echo "Container not running"', returnStdout: true).trim()
+                }
             }
         }
     }
+
     post {
         success {
             mail to: 'Tanish.Pathania@iiitb.ac.in',
-                subject: "✅ Build SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                body: "The Jenkins pipeline completed successfully.\nJob: ${env.JOB_NAME}\nBuild: #${env.BUILD_NUMBER}"
+                 subject: "✅ Build SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                 body: """\
+The Jenkins pipeline completed successfully.
+
+Job: ${env.JOB_NAME}
+Build: #${env.BUILD_NUMBER}
+
+--- Test Output ---
+${env.TEST_OUTPUT}
+
+--- Package Output ---
+${env.PACKAGE_OUTPUT}
+
+--- Docker Pull Output ---
+${env.DOCKER_PULL_OUTPUT}
+
+--- Docker Build Output ---
+${env.DOCKER_BUILD_OUTPUT}
+
+--- Docker Push Output ---
+${env.DOCKER_PUSH_OUTPUT}
+
+--- Ansible Deployment Output ---
+${env.ANSIBLE_OUTPUT}
+
+--- Deployment Verification ---
+${env.VERIFY_OUTPUT}
+"""
         }
         failure {
             mail to: 'Tanish.Pathania@iiitb.ac.in',
-                subject: "❌ Build FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                body: "The Jenkins pipeline failed.\nJob: ${env.JOB_NAME}\nBuild: #${env.BUILD_NUMBER}"
+                 subject: "❌ Build FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                 body: """\
+The Jenkins pipeline failed.
+
+Job: ${env.JOB_NAME}
+Build: #${env.BUILD_NUMBER}
+
+--- Test Output ---
+${env.TEST_OUTPUT}
+
+--- Package Output ---
+${env.PACKAGE_OUTPUT}
+
+--- Docker Pull Output ---
+${env.DOCKER_PULL_OUTPUT}
+
+--- Docker Build Output ---
+${env.DOCKER_BUILD_OUTPUT}
+
+--- Docker Push Output ---
+${env.DOCKER_PUSH_OUTPUT}
+
+--- Ansible Deployment Output ---
+${env.ANSIBLE_OUTPUT}
+
+--- Deployment Verification ---
+${env.VERIFY_OUTPUT}
+"""
         }
         always {
             cleanWs()
