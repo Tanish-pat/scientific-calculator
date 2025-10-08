@@ -91,6 +91,7 @@ pipeline {
         }
         always {
             cleanWs()
+            echo "🚀 Pipeline run over."
         }
     }
 }
