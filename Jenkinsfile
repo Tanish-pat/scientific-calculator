@@ -61,6 +61,34 @@ pipeline {
     }
 
     post {
+        success {
+            emailext(
+                to: 'Tanish.Pathania@iiitb.ac.in',
+                subject: "✅ Build SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """\
+                    The Jenkins pipeline completed successfully.
+
+                    Job: ${env.JOB_NAME}
+                    Build: #${env.BUILD_NUMBER}
+                    Status: SUCCESS
+                    Time: ${new Date()}
+                    """
+            )
+        }
+        failure {
+            emailext(
+                to: 'Tanish.Pathania@iiitb.ac.in',
+                subject: "❌ Build FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                body: """\
+                    The Jenkins pipeline failed.
+
+                    Job: ${env.JOB_NAME}
+                    Build: #${env.BUILD_NUMBER}
+                    Status: FAILURE
+                    Time: ${new Date()}
+                    """
+            )
+        }
         always {
             cleanWs()
         }
