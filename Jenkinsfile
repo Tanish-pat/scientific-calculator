@@ -59,39 +59,20 @@ pipeline {
             }
         }
     }
-
     post {
         success {
-            emailext(
-                to: 'Tanish.Pathania@iiitb.ac.in',
+            mail to: 'Tanish.Pathania@iiitb.ac.in',
                 subject: "✅ Build SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                body: """\
-                    The Jenkins pipeline completed successfully.
-
-                    Job: ${env.JOB_NAME}
-                    Build: #${env.BUILD_NUMBER}
-                    Status: SUCCESS
-                    Time: ${new Date()}
-                    """
-            )
+                body: "The Jenkins pipeline completed successfully.\nJob: ${env.JOB_NAME}\nBuild: #${env.BUILD_NUMBER}"
         }
         failure {
-            emailext(
-                to: 'Tanish.Pathania@iiitb.ac.in',
+            mail to: 'Tanish.Pathania@iiitb.ac.in',
                 subject: "❌ Build FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
-                body: """\
-                    The Jenkins pipeline failed.
-
-                    Job: ${env.JOB_NAME}
-                    Build: #${env.BUILD_NUMBER}
-                    Status: FAILURE
-                    Time: ${new Date()}
-                    """
-            )
+                body: "The Jenkins pipeline failed.\nJob: ${env.JOB_NAME}\nBuild: #${env.BUILD_NUMBER}"
         }
         always {
             cleanWs()
-            echo "🚀 Pipeline run over."
+            echo "Pipeline run over."
         }
     }
 }
