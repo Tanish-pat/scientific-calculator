@@ -1,0 +1,9 @@
+1. VM
+ngrok http 8080
+
+2. Windows Powershell
+ssh -R 8080:localhost:8081 tanish@172.16.192.15
+
+3. Update your GitHub webhook with the new ngrok URL/github-webhook/ and do content type = application/json
+4. Update your Jenkins URL with the new ngrok URL
+
