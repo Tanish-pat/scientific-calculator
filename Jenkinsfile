@@ -1,3 +1,4 @@
+// Jenkinsfile for CI/CD pipeline of Scientific Calculator application
 pipeline {
     agent any
 
