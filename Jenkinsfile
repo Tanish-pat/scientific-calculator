@@ -83,7 +83,6 @@ pipeline {
                  subject: "Build SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                  body: """\
                             The Jenkins pipeline completed successfully.
-
                             Job: ${env.JOB_NAME}
                             Build: #${env.BUILD_NUMBER}
 
@@ -114,7 +113,6 @@ pipeline {
                  subject: "Build FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                  body: """\
                             The Jenkins pipeline failed.
-
                             Job: ${env.JOB_NAME}
                             Build: #${env.BUILD_NUMBER}
 
