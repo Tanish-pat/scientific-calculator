@@ -80,7 +80,7 @@ pipeline {
     post {
         success {
             mail to: 'Tanish.Pathania@iiitb.ac.in',
-                 subject: "✅ Build SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                 subject: "Build SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                  body: """\
                             The Jenkins pipeline completed successfully.
 
@@ -111,7 +111,7 @@ pipeline {
         }
         failure {
             mail to: 'Tanish.Pathania@iiitb.ac.in',
-                 subject: "❌ Build FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                 subject: "Build FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
                  body: """\
                             The Jenkins pipeline failed.
 
