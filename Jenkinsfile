@@ -23,7 +23,7 @@ pipeline {
             }
             steps {
                 script {
-                    env.TEST_OUTPUT = sh(script: 'mvn clean test', returnStdout: true).trim()
+                    env.TEST_OUTPUT = sh(script: 'mvn clean compile test', returnStdout: true).trim()
                     env.PACKAGE_OUTPUT = sh(script: 'mvn package', returnStdout: true).trim()
                 }
             }
@@ -32,8 +32,7 @@ pipeline {
         stage('Prepare Docker Images') {
             steps {
                 script {
-                    // env.DOCKER_PULL_OUTPUT = sh(script: 'docker pull eclipse-temurin:17-jdk-alpine || true', returnStdout: true).trim()
-                    env.DOCKER_PULL_OUTPUT = sh(script: 'docker pull alpine:17-jdk-alpine || true', returnStdout: true).trim()
+                    env.DOCKER_PULL_OUTPUT = sh(script: 'docker pull eclipse-temurin:17-jdk-alpine || true', returnStdout: true).trim()
                 }
             }
         }
