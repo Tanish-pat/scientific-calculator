@@ -1,24 +1,24 @@
 ---
 - name: Deploy Scientific Calculator Docker container
-  hosts: local
+  hosts: local # specifies which target machines to run the playbook on, matches the group defined in hosts.ini
 
-  tasks:
+  tasks: # begin sequence of tasks
     - name: Pull Docker image from Docker Hub
-      community.docker.docker_image:
+      community.docker.docker_image: # module from community.docker collection to manage Docker images
         name: tanish688/scientific-calculator
-        tag: "1.0"
-        source: pull
+        tag: "1.0" # identify the specific version
+        source: pull # Ansible pulls from Docker Hub instead of building locally
 
     - name: Stop and remove existing container if exists
-      community.docker.docker_container:
+      community.docker.docker_container: # manage lifecycle of Docker containers
         name: scientific-calculator
-        state: absent
+        state: absent # we declare the final state we want for the container, ie, the container should not exist. If it does not exist, Ansible does nothing
 
     - name: Run the scientific calculator container
       community.docker.docker_container:
         name: scientific-calculator
         image: tanish688/scientific-calculator:1.0
-        state: started
-        restart_policy: unless-stopped
-        tty: yes
+        state: started # instructs Ansible to ensure the container is running
+        restart_policy: unless-stopped # Container automatically restarts after crashes or system reboots, remains stopped only if explicitly stopped
+        tty: yes # needed as we have to use shell, as java needs Scanner for input
         interactive: yes
