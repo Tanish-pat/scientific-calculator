@@ -32,7 +32,7 @@ pipeline {
         stage('Prepare Docker Images') {
             steps {
                 script {
-                    env.DOCKER_PULL_OUTPUT = sh(script: 'docker pull openjdk:17-jdk-alpine || true', returnStdout: true).trim()
+                    env.DOCKER_PULL_OUTPUT = sh(script: 'docker pull eclipse-temurin:17-jdk-alpine || true', returnStdout: true).trim()
                 }
             }
         }
