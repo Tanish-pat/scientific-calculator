@@ -1,4 +1,4 @@
-// Jenkinsfile for CI/CD pipeline of Scientific Calculator application
+// Jenkinsfile for CI/CD pipeline of Scientific Calculator application. Made for SPE Project.
 pipeline {
     agent any
 
